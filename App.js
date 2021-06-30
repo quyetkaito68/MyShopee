@@ -1,10 +1,16 @@
 import * as React from 'react';
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
-import HomeCategoris from './components/HomeCategories.js'
+import { StyleSheet, Text, View, ScrollView ,SafeAreaView} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import { Ionicons } from '@expo/vector-icons';
+
 import Home from './screens/Home.js';
+import Feed from './screens/Feed.js';
+import HomeCategoris from './components/HomeCategories.js'
+import { render } from 'react-dom';
+
 
 
 function HomeScreen() {
@@ -48,16 +54,53 @@ function ProfileScreen() {
 
 const TopTab = createMaterialTopTabNavigator();
 const Tab = createBottomTabNavigator();
-//const BottomTabs = createMaterialBottomTabNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <TopTab.Navigator tabBarPosition='bottom'>
-        <TopTab.Screen name="Home" component={HomeScreen}/>
+      <TopTab.Navigator 
+          //set icon
+          screenOptions={({ route }) => ({
+          tabBarIcon: ({ color, size }) => {
+            const icons = {
+              Home: 'home',
+              Profile: 'account',
+              Feed:'vector-arrange-above',
+              Live: 'cast-connected',  
+              Notification: 'bell',
+
+            };
+            return (
+              <MaterialCommunityIcons
+                name={icons[route.name]}
+                color={color}
+                size={size}
+              />
+            );
+          },
+        })}
+        tabBarPosition='bottom' //vị trí navigagor
+        initialRouteName='Home' //điểm bắt đầu
+        tabBarOptions={{
+          activeTintColor: 'orange',
+          inactiveTintColor: 'grey',         
+          upperCaseLabel: false,
+          showIcon: true,
+          labelStyle: {
+              fontSize: 9,
+              marginTop: 1
+            },
+          style: {
+              backgroundColor: '#f2f2f2',
+              elevation: 15,
+              height: 50,
+              
+            },          
+        }}>
+        <TopTab.Screen name="Home" component={HomeScreen} />
         <TopTab.Screen name="Feed" component={FeedScreen} />
-        <TopTab.Screen name="Live" component={FeedScreen} />
-        <TopTab.Screen name="Notification" component={FeedScreen} />
+        <TopTab.Screen name="Live" component={LiveScreen} />
+        <TopTab.Screen name="Notification" component={NotifiyScreen} />
         <TopTab.Screen name="Profile" component={ProfileScreen}/>
       </TopTab.Navigator>
     </NavigationContainer>
