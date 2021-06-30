@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { View,Text,StyleSheet,Image,ScrollView,Dimensions } from 'react-native';
+import React, { Component,useState } from 'react';
+import { View,Text,StyleSheet,Image,ScrollView,Dimensions,Animated } from 'react-native';
 import { color } from 'react-native-reanimated';
 
 const {width}=Dimensions.get("window");
@@ -11,27 +11,31 @@ const image=[
     'https://cf.shopee.vn/file/9bceb667f95a7396685931ac84377e9c_xhdpi',
     'https://cf.shopee.vn/file/96c77b91b9888bbb9365c19cffaf8ca9_xhdpi',
 
-]
+];
 
-export default class SlideHome  extends Component {
+export default class SlideHome extends Component {
     state={
         active:0
     }
-    change=({naviveEvent})=>{
-        //console.log(Math.ceil(naviveEventnativeEvent.contentOffset.x/naviveEvent.layoutMeasurement.width));
-        const slide = Math.ceil(naviveEvent.contentOffset.x/naviveEvent.layoutMeasurement.width);
-        if(slide!== this.state.active){
-            this.setState({active: slide});
+    change = ({nativeEvent}) => {
+        const slide = Math.ceil(
+        nativeEvent.contentOffset.x / nativeEvent.layoutMeasurement.width,
+        );
+        
+        if (slide !== this.state.active) {
+            this.setState({active:slide});
         }
-    }
+    };
     render(){
     return (
     <View style={styles.container}>
         <ScrollView
             horizontal
             pagingEnabled
-            //onScroll={this.change} // chưa chạy
+            showsHorizontalScrollIndicator={false}
+            onScroll={this.change}// chạy rồi
             style={styles.scroll}
+            
         >
             {image.map((image,index)=>(
                 <Image 
