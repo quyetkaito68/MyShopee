@@ -56,7 +56,7 @@ const style = StyleSheet.create({
     menu:{
         backgroundColor:"#fff",
         marginBottom:10,
-        minHeight:100,
+        height:200
     },
     submenu:{
         display:'flex',

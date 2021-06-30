@@ -3,6 +3,7 @@ import { View,Text,StyleSheet, SafeAreaView } from 'react-native';
 
 
 import HomeCategoris from '../components/HomeCategories.js'
+import HomeMenu from '../components/HomeMenu.js';
 import SlideHome from '../components/SlideHome.js';
 
 function Home(props) {
@@ -10,6 +11,7 @@ function Home(props) {
         <SafeAreaView style={styles.container}>
             <Text>Home có gì nào</Text>
             <SlideHome/>
+            <HomeMenu/>
         </SafeAreaView>
         
     );
@@ -18,8 +20,7 @@ function Home(props) {
 export default Home;
 const styles = StyleSheet.create({
     container:{
-      top: 20,
-      flex:1,
+      alignItems:'stretch',
       alignItems:'center',
       justifyContent:'center',
     }
