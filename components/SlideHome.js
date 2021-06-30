@@ -3,7 +3,7 @@ import { View,Text,StyleSheet,Image,ScrollView,Dimensions,Animated } from 'react
 import { color } from 'react-native-reanimated';
 
 const {width}=Dimensions.get("window");
-const height=100;
+const height=width*0.5;
 const image=[
     'https://cf.shopee.vn/file/b3a9e1c3738c775212d33ae9f7a0a368_xxhdpi',
     'https://cf.shopee.vn/file/f4eb84885477f28be4fdbc9ee3d4c57e_xxhdpi',
@@ -61,11 +61,11 @@ export default class SlideHome extends Component {
 
 
 const styles = StyleSheet.create({
-    container:{marginTop:50,width,height},
+    container:{width,height},
     scroll:{
         width,height
     },
-    image:{width,height,resizeMode:'cover'},
+    image:{width,height,resizeMode:'stretch'},
     pagination:{flexDirection:'row',position:'absolute',bottom:0, alignSelf:'center'},
     pagingText:{color:'#888',margin:3},
     pagingActiveText:{color:'#fff',margin:3},

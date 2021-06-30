@@ -112,8 +112,8 @@ const styles = StyleSheet.create({
   container:{
     marginBottom:20,
     flex:1,
-    alignItems:'center',
-    justifyContent:'center',
+     alignItems:'center',
+     justifyContent:'center',
   }
 })
 
