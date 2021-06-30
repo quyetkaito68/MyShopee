@@ -1,16 +1,16 @@
 import React from 'react';
 import { View,Text,StyleSheet } from 'react-native';
 
-function Feed(props) {
+function Profile(props) {
     return (
         <View style={styles.container}>
-            <Text>NewFeed có gì nào</Text>
+            <Text>Profile có gì nào</Text>
         </View>
         
     );
 }
 
-export default Feed;
+export default Profile;
 const styles = StyleSheet.create({
     container:{
       flex:1,
