@@ -9,9 +9,9 @@ import SlideHome from '../components/SlideHome.js';
 function Home(props) {
     return (
         <SafeAreaView style={styles.container}>
-            <Text>Home có gì nào</Text>
+            <Text>Home có aaaa</Text>
             <SlideHome/>
-            <HomeMenu/>
+            <HomeMenu/>            
         </SafeAreaView>
         
     );
@@ -20,7 +20,7 @@ function Home(props) {
 export default Home;
 const styles = StyleSheet.create({
     container:{
-      alignItems:'stretch',
+     // alignItems:'stretch',
       alignItems:'center',
       justifyContent:'center',
     }

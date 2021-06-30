@@ -97,7 +97,7 @@ export default function App() {
               
             },          
         }}>
-        <TopTab.Screen name="Home" component={HomeScreen} />
+        <TopTab.Screen name="Home" component={Home} />
         <TopTab.Screen name="Feed" component={FeedScreen} />
         <TopTab.Screen name="Live" component={LiveScreen} />
         <TopTab.Screen name="Notification" component={NotifiyScreen} />

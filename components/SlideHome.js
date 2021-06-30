@@ -1,38 +1,69 @@
-import React from 'react';
-import { View,Text,StyleSheet,Image } from 'react-native';
-import Swiper from 'react-native-swiper';
+import React, { Component } from 'react';
+import { View,Text,StyleSheet,Image,ScrollView,Dimensions } from 'react-native';
+import { color } from 'react-native-reanimated';
 
-function SlideHome(props) {
+const {width}=Dimensions.get("window");
+const height=100;
+const image=[
+    'https://cf.shopee.vn/file/b3a9e1c3738c775212d33ae9f7a0a368_xxhdpi',
+    'https://cf.shopee.vn/file/f4eb84885477f28be4fdbc9ee3d4c57e_xxhdpi',
+    'https://cf.shopee.vn/file/2d19676304251e96b0094476fa31de5a_xxhdpi',
+    'https://cf.shopee.vn/file/9bceb667f95a7396685931ac84377e9c_xhdpi',
+    'https://cf.shopee.vn/file/96c77b91b9888bbb9365c19cffaf8ca9_xhdpi',
+
+]
+
+export default class SlideHome  extends Component {
+    state={
+        active:0
+    }
+    change=({naviveEvent})=>{
+        //console.log(Math.ceil(naviveEventnativeEvent.contentOffset.x/naviveEvent.layoutMeasurement.width));
+        const slide = Math.ceil(naviveEvent.contentOffset.x/naviveEvent.layoutMeasurement.width);
+        if(slide!== this.state.active){
+            this.setState({active: slide});
+        }
+    }
+    render(){
     return (
-        <Swiper  autoplay={true} 
-                    height={100}
-                    showsPagination={false}
-                   
-        
+    <View style={styles.container}>
+        <ScrollView
+            horizontal
+            pagingEnabled
+            //onScroll={this.change} // chưa chạy
+            style={styles.scroll}
         >
-            <View style={styles.slide}>
-                <Image source={{uri:'https://www.siliconera.com/wp-content/uploads/2021/05/Eula-Genshin-Impact.jpg',width:'100%', height:100}} />                
-            </View>
-            <View style={styles.slide}>
-                <Image source={{uri:'https://st.gamevui.com/data/image/2021/01/18/Ganyu-doi-hinh.jpg',width:'100%', height:100}} />                
-            </View>
-            <View style={styles.slide}>
-                <Image source={{uri:'https://picsum.photos/200/300.jpg',width:'100%', height:100}} />                
-            </View>
-        </Swiper>        
+            {image.map((image,index)=>(
+                <Image 
+                key={index}
+                source={{uri:image}}
+                style={styles.image}
+                />
+
+            ))}
+        </ScrollView>
+        <View style={styles.pagination}>
+            {
+                image.map((i,k)=>(
+                    <Text key={k} style={k==this.state.active? styles.pagingActiveText:styles.pagingText}>⬤</Text>
+                ))
+            }
+        </View>
+    </View>
+    
         
     );
-}
+}}
 
-export default SlideHome;
 
 const styles = StyleSheet.create({
-    wrapper: {
+    container:{marginTop:50,width,height},
+    scroll:{
+        width,height
     },
-    slide: {
-     justifyContent: 'center',
-     height:100,
-     backgroundColor: 'transparent'
-   },
-  });
+    image:{width,height,resizeMode:'cover'},
+    pagination:{flexDirection:'row',position:'absolute',bottom:0, alignSelf:'center'},
+    pagingText:{color:'#888',margin:3},
+    pagingActiveText:{color:'#fff',margin:3},
+});
   
