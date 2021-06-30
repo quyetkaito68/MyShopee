@@ -1,12 +1,16 @@
 import React from 'react';
-import { View,Text,StyleSheet } from 'react-native';
+import { View,Text,StyleSheet, SafeAreaView } from 'react-native';
+
+
 import HomeCategoris from '../components/HomeCategories.js'
+import SlideHome from '../components/SlideHome.js';
 
 function Home(props) {
     return (
-        <View style={styles.container}>
-            <Text>This is my Home!</Text>
-        </View>
+        <SafeAreaView style={styles.container}>
+            <Text>Home có gì nào</Text>
+            <SlideHome/>
+        </SafeAreaView>
         
     );
 }
@@ -14,6 +18,7 @@ function Home(props) {
 export default Home;
 const styles = StyleSheet.create({
     container:{
+      top: 20,
       flex:1,
       alignItems:'center',
       justifyContent:'center',
