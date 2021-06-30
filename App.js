@@ -8,6 +8,7 @@ import { Ionicons } from '@expo/vector-icons';
 
 import Home from './screens/Home.js';
 import Feed from './screens/Feed.js';
+
 import HomeCategoris from './components/HomeCategories.js'
 import { render } from 'react-dom';
 
@@ -17,6 +18,7 @@ function HomeScreen() {
   return (
     <View style={styles.container}>
       <Text>This is my Home!</Text>
+
     </View>
   );
 }
@@ -91,13 +93,13 @@ export default function App() {
               marginTop: 1
             },
           style: {
-              backgroundColor: '#f2f2f2',
+              backgroundColor: '#fff',
               elevation: 15,
               height: 50,
-              
+              marginBottom:20,
             },          
         }}>
-        <TopTab.Screen name="Home" component={HomeScreen} />
+        <TopTab.Screen name="Home" component={Home} />
         <TopTab.Screen name="Feed" component={FeedScreen} />
         <TopTab.Screen name="Live" component={LiveScreen} />
         <TopTab.Screen name="Notification" component={NotifiyScreen} />
@@ -108,6 +110,7 @@ export default function App() {
 }
 const styles = StyleSheet.create({
   container:{
+    marginBottom:20,
     flex:1,
     alignItems:'center',
     justifyContent:'center',
