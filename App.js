@@ -3,51 +3,64 @@ import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import HomeCategoris from './components/HomeCategories.js'
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+//import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import Home from './screens/Home.js';
 
 
+class HomeScreen extends React.Component{
+  render(){
+    return(
+      <View style={styles.container}>
+        <Text>Home</Text>
+      </View>
+    )
+  }
+}
+class ProfileScreen extends React.Component{
+  render(){
+    return(
+      <View style = {styles.container}>
+        <Text>Profile</Text>
+      </View>
+    )
+  }
+}
 
-function HomeScreen() {
+function x() {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <View style={styles.container}>
       <Text>This is my Home!</Text>
     </View>
   );
 }
 
+
 function SettingsScreen() {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <View style={styles.container}>
       <Text>Settings!</Text>
     </View>
   );
 }
 
 const Tab = createBottomTabNavigator();
+//const BottomTabs = createMaterialBottomTabNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
       <Tab.Navigator>
-        <Tab.Screen name="Home" component={HomeScreen} />
+        <Tab.Screen name="Home" component={x} />
         <Tab.Screen name="Settings" component={SettingsScreen} />
       </Tab.Navigator>
     </NavigationContainer>
   );
 }
+const styles = StyleSheet.create({
+  container:{
+    flex:1,
+    alignItems:'center',
+    justifyContent:'center',
+  }
+})
 
-// export default function App() {
-//   return (
-//     <View style={styles.container}>
-//       <HomeCategoris/>
-//     </View>
-//   );
-// }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: '#fff',
-//     alignItems: 'stretch',
-//     justifyContent: 'center',
-//   },
-// });
