@@ -3,30 +3,11 @@ import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import HomeCategoris from './components/HomeCategories.js'
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-//import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import Home from './screens/Home.js';
 
 
-class HomeScreen extends React.Component{
-  render(){
-    return(
-      <View style={styles.container}>
-        <Text>Home</Text>
-      </View>
-    )
-  }
-}
-class ProfileScreen extends React.Component{
-  render(){
-    return(
-      <View style = {styles.container}>
-        <Text>Profile</Text>
-      </View>
-    )
-  }
-}
-
-function x() {
+function HomeScreen() {
   return (
     <View style={styles.container}>
       <Text>This is my Home!</Text>
@@ -34,25 +15,51 @@ function x() {
   );
 }
 
-
-function SettingsScreen() {
+function FeedScreen() {
   return (
     <View style={styles.container}>
-      <Text>Settings!</Text>
+      <Text>This is News Feed</Text>
+    </View>
+  );
+}
+function LiveScreen() {
+  return (
+    <View style={styles.container}>
+      <Text>This is Live Screen</Text>
+    </View>
+  );
+}
+function NotifiyScreen() {
+  return (
+    <View style={styles.container}>
+      <Text>This is all of your notification</Text>
     </View>
   );
 }
 
+
+function ProfileScreen() {
+  return (
+    <View style={styles.container}>
+      <Text>Profile here!</Text>
+    </View>
+  );
+}
+
+const TopTab = createMaterialTopTabNavigator();
 const Tab = createBottomTabNavigator();
 //const BottomTabs = createMaterialBottomTabNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Tab.Navigator>
-        <Tab.Screen name="Home" component={x} />
-        <Tab.Screen name="Settings" component={SettingsScreen} />
-      </Tab.Navigator>
+      <TopTab.Navigator tabBarPosition='bottom'>
+        <TopTab.Screen name="Home" component={HomeScreen}/>
+        <TopTab.Screen name="Feed" component={FeedScreen} />
+        <TopTab.Screen name="Live" component={FeedScreen} />
+        <TopTab.Screen name="Notification" component={FeedScreen} />
+        <TopTab.Screen name="Profile" component={ProfileScreen}/>
+      </TopTab.Navigator>
     </NavigationContainer>
   );
 }
