@@ -34,9 +34,10 @@ const styles = StyleSheet.create({
         justifyContent:'center',
     },
     title: {
-        fontSize: 32,
+        fontSize: 15,
     },
     description:{
-        fontSize:15,
+        fontSize:20,
+        color:'orange',
     },
 });
