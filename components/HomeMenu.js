@@ -7,13 +7,13 @@ const SubMenu = (props)=>{
     return (
         <View style={style.submenu}>
             <View style={style.item}>
-                <Image source={props.name1!=""?img:false}
+                <Image source={props.name1!=""?img:null}
                         style={style.iconsubmenu}
                 />
                 <Text style={{fontSize:10, textAlign:'center'}}>{props.name1}</Text>
             </View>
             <View style={style.item}>
-                <Image source={props.name2!=""?img:false}
+                <Image source={props.name2!=""?img:null}
                         style={style.iconsubmenu}
                 />
                 <Text style={{fontSize:10, textAlign:'center'}}>{props.name2}</Text>
@@ -40,9 +40,7 @@ const HomeMenu = ()=>{
                 <SubMenu name1="Shopee Mall" name2="Ưu Đãi Đối Tác"/>                
                 <SubMenu name1="Săn Xu Mỗi Ngày" name2="Mã Giảm Giá"/>   
                 <SubMenu name1="KOL Club" name2=""/>   
-                             
-
-                        
+      
             </ScrollView>
         </View>
 
