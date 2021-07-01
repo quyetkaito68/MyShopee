@@ -83,6 +83,7 @@ export default function App() {
         })}
         tabBarPosition='bottom' //vị trí navigagor
         initialRouteName='Home' //điểm bắt đầu
+        swipeEnabled={false}
         tabBarOptions={{
           activeTintColor: 'orange',
           inactiveTintColor: 'grey',         
