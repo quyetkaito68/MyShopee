@@ -27,7 +27,7 @@ const SubMenu = (props)=>{
 const HomeMenu = ()=>{
     return (
         <View style={style.menu}>
-            <ScrollView horizontal={true} fadingEdgeLength="100">
+            <ScrollView horizontal={true} fadingEdgeLength={100}>
                 <SubMenu name1="Khung Giờ Săn Sale" name2="NowFood Chỉ 7K"/>                
                 <SubMenu name1="Deal Gần Bạn - Chỉ Từ 1K" name2="Tech Zone - Siêu Thị Điện Máy"/>                
                 <SubMenu name1="Gì Cũng Rẻ - Chỉ Từ 1K" name2="Hoàn Xu 15% Mỗi Ngày"/>                

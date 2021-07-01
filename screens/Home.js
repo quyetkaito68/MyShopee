@@ -1,18 +1,23 @@
 import React from 'react';
-import { View,Text,StyleSheet, SafeAreaView } from 'react-native';
+import { View,Text,StyleSheet, SafeAreaView,ScrollView } from 'react-native';
+import FlashSale from '../components/FlashSale.js';
 import HomeMenu from '../components/HomeMenu.js';
+import Recommend from '../components/Recommend.js';
 import SlideHome from '../components/SlideHome.js';
 
 function Home(props) {
     return (
         
-        <View style={styles.container}>     
+        <ScrollView style={styles.container}>
             <SlideHome/>
             <HomeMenu/>
+            <Recommend/>
+           
+        
             
             
 
-        </View>
+        </ScrollView>
         
     );
 }

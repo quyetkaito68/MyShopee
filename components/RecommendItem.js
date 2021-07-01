@@ -8,7 +8,7 @@ const deviceWidth = Dimensions.get('window').width;
 const RecommendItem=({item})=> {
     return (
         <View style = {[styles.containter]}>
-        <Image source={{uri:item.image}} style={styles.image}></Image>
+        <Image source={item.image} style={styles.image}></Image>
         <View style={{flex:0.3}}>
             <Text style={styles.title}>{item.title}</Text>
             <Text style={styles.description}>{item.description}</Text>
@@ -28,8 +28,8 @@ const styles = StyleSheet.create({
     },
     image:{
         //flex:0.7,
-        width:deviceWidth/2,
-        height:deviceWidth/2,
+         width:deviceWidth/2,
+         height:deviceWidth/2,
         resizeMode:'stretch',
         justifyContent:'center',
     },
